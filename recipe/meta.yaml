@@ -1,4 +1,4 @@
-{% set version = '0.8.2' %}
+{% set version = "0.8.3" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/rncl_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/rncl/rncl_{{ version }}.tar.gz
-  sha256: 80e1aa00cab4af0093198d0d902c973eb31dbdf4628e229ee9c136a9cc9c369e
+  sha256: daaef6874438233c73a62b59a9ee10261e1e10d7ef18b7178d2d8b517fd4880d
 
 build:
   number: 0
