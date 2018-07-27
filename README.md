@@ -14,14 +14,16 @@ Summary: An interface to the Nexus Class Library which allows parsing of NEXUS, 
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/r-rncl-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/r-rncl-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/r-rncl-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/r-rncl-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/r-rncl-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/r-rncl-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-rncl-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-rncl-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-rncl-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-rncl-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-rncl-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-rncl-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-rncl/badges/version.svg)](https://anaconda.org/conda-forge/r-rncl)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/r-rncl/badges/downloads.svg)](https://anaconda.org/conda-forge/r-rncl)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-r--rncl-green.svg)](https://anaconda.org/conda-forge/r-rncl) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/r-rncl.svg)](https://anaconda.org/conda-forge/r-rncl) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/r-rncl.svg)](https://anaconda.org/conda-forge/r-rncl) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/r-rncl.svg)](https://anaconda.org/conda-forge/r-rncl) |
 
 Installing r-rncl
 =================
