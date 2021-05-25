@@ -1,57 +1,62 @@
-{% set version = "0.8.4" %}
-
+{% set version = '0.8.4' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-rncl
-  version: {{ version }}
+  version: {{ version|replace("-", "_") }}
 
 source:
-  fn: rncl_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/rncl_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/rncl/rncl_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/rncl_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/rncl/rncl_{{ version }}.tar.gz
   sha256: 6b19d0dd9bb08ecf99766be5ad684bcd1894d1cd9291230bdd709dbd3396496b
 
 build:
   merge_build_host: True  # [win]
   number: 1
-  script: R CMD INSTALL --build .
-  skip: True  # [win32]
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - posix  # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
-    - {{ compiler('cxx') }}        # [unix]
-    - {{ compiler('m2w64_cxx') }}  # [win]
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
+    - {{ posix }}filesystem        # [win]
+    - {{ posix }}make
+    - {{ posix }}sed               # [win]
+    - {{ posix }}coreutils         # [win]
+    - {{ posix }}zip               # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-rcpp >=0.11.0
-    - r-progress
+    - r-progress >=1.1.2
   run:
     - r-base
+    - {{ native }}gcc-libs         # [win]
     - r-rcpp >=0.11.0
-    - r-progress
+    - r-progress >=1.1.2
 
 test:
   commands:
-    - $R -e "library('rncl')"  # [not win]
+    - $R -e "library('rncl')"           # [not win]
     - "\"%R%\" -e \"library('rncl')\""  # [win]
 
 about:
-  home: https://cran.r-project.org/web/packages/rncl
-  license: BSD 2 Clause
-  license_file: LICENSE
+  home: https://github.com/fmichonneau/rncl
+  license: BSD-2-Clause
   summary: An interface to the Nexus Class Library which allows parsing of NEXUS, Newick and
     other phylogenetic tree file formats. It provides elements of the file that can
     be used to build phylogenetic objects such as ape's 'phylo' or phylobase's 'phylo4(d)'.
     This functionality is demonstrated with 'read_newick_phylo()' and 'read_nexus_phylo()'.
+  license_family: BSD
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/BSD_2_clause
+    - LICENSE
 
 extra:
   recipe-maintainers:
