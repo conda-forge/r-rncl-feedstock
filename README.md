@@ -1,9 +1,9 @@
 About r-rncl
 ============
 
-Home: https://cran.r-project.org/web/packages/rncl
+Home: https://github.com/fmichonneau/rncl
 
-Package license: BSD 2 Clause
+Package license: BSD-2-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rncl-feedstock/blob/master/LICENSE.txt)
 
