@@ -1,4 +1,4 @@
-{% set version = "0.8.8" %}
+{% set version = "0.8.9" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/rncl_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/rncl/rncl_{{ version }}.tar.gz
-  sha256: 85e3ebba702131cf43e272af977182c88e4ea5d9d940f50d9ed3f02fee7e0d2f
+  sha256: 8e64a0cae60010498e3aa7a858f1b18143ae2e0eff0ed7db0a76bcda05012709
 
 build:
   number: 0
